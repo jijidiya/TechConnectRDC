@@ -1,0 +1,432 @@
+/* =============================
+   CONFIGURATION GLOBALE
+============================= */
+
+
+
+/* ========== SECTION 1 : RÉINITIALISATION GLOBALE ========== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #fff;
+    color: #22303A;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* ========== SECTION 2 : HEADER ET NAVIGATION ========== */
+
+header {
+    background: #ffffff;
+    color: #262daf;
+    padding: 2px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+header a {
+    color: #262daf;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #AED6F1;
+}
+
+.btn-login {
+    background-color: #262daf;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color : #ffffff;
+}
+
+.btn-login:hover {
+    background-color: #78b5c0;
+}
+
+
+
+/* ========== SECTION 3 : BANNIÈRE D’ACCUEIL (HERO) ========== */
+
+#hero {
+    background-image: url('../img/banner.jpg') ;
+    background-size: cover;
+    color: white;
+    text-align: left;
+    padding: 100px 12px;
+    align-items: left;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+#hero h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #78b5c0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #0B4DA1;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background-color: #083A79;
+}
+
+
+
+/* ========== SECTION 4 : TITRES DE SECTION ========== */
+
+.section-title {
+    text-align: center;
+    color: #000000;
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #4A5A67;
+    margin-bottom: 40px;
+}
+
+
+
+/* ========== SECTION 5 : CATÉGORIES ========== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    
+}
+
+.category-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    color: #262daf;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* ========== SECTION 5 : SERVICES  ========== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: #262daf;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+
+
+/* ========== SECTION 6 : FORMULAIRES (INSCRIPTION / CONNEXION) ========== */
+
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px 30px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #262daf;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    text-align: center;
+    color: #5A6B75;
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #22303A;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #D5D8DC;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+form input:focus {
+    border-color: #0B4DA1;
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    background-color: #0E7A66;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0B5E4F;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #0B4DA1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ========== SECTION 7 : FOURNISSEURS ========== */
+
+.fournisseurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.fournisseur-card {
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+
+.fournisseur-card:hover {
+    transform: translateY(-5px);
+}
+
+.fournisseur-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+
+
+/* ========== SECTION 8 : APPEL À L’ACTION (CTA) ========== */
+
+#cta-section {
+    background-color: #262daf;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+#cta-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+#cta-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+
+
+/* ========== SECTION 9 : PIED DE PAGE (FOOTER) ========== */
+
+#footer {
+    background: #262daf;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-container h3,
+.footer-container h4 {
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #D6EAF8;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    font-size: 0.9rem;
+}

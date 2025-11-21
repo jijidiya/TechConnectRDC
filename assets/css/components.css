@@ -1,0 +1,140 @@
+/* ============================================================
+   COMPONENTS.CSS — Rétrocompatible avec TON style.css
+============================================================ */
+
+
+/* ======================
+   BOUTONS (anciens)
+====================== */
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 12px 25px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #78b5c0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #083A79;
+}
+
+.btn-login {
+    background-color: var(--color-primary);
+    padding: 8px 15px;
+    border-radius: var(--radius-md);
+    color: #ffffff;
+}
+
+.btn-login:hover {
+    background-color: #78b5c0;
+}
+
+
+/* ======================
+   CARDS (anciens)
+====================== */
+
+.category-card,
+.service-card,
+.fournisseur-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    padding: 20px;
+    transition: 0.3s;
+    background-color: white;
+}
+
+.category-card:hover,
+.service-card:hover,
+.fournisseur-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img,
+.service-card img,
+.fournisseur-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 15px;
+}
+
+
+/* ======================
+   FORMULAIRES (anciens)
+====================== */
+
+.form-container {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px 30px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--color-primary);
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-md);
+}
+
+form button {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--color-accent-dark);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: var(--color-secondary);
+}

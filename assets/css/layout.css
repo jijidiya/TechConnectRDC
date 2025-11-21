@@ -1,0 +1,117 @@
+/* ============================================================
+   LAYOUT.CSS — Structure et sections (100% rétrocompatible)
+============================================================ */
+
+
+/* ======================
+   HEADER
+====================== */
+
+header {
+    background: white;
+    color: var(--color-primary);
+    padding: 2px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+
+/* ======================
+   HERO
+====================== */
+
+#hero {
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    color: white;
+    padding: 100px 12px;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+
+/* ======================
+   TITRES DE SECTIONS
+====================== */
+
+.section-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+/* ======================
+   GRILLES
+====================== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.fournisseurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* ======================
+   CTA
+====================== */
+
+#cta-section {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+
+/* ======================
+   FOOTER
+====================== */
+
+#footer {
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}

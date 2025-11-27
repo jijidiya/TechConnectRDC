@@ -1,129 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Mon Site</title>
-    <style>
-        /* === Couleurs et polices === */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8; /* fond clair */
-            margin: 0;
-            padding: 0;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechConnect RDC - Plateforme B2B</title>
+        <link rel="stylesheet" href="assets/css/faq.css">
+        <link rel="stylesheet" href="assets/css/base.css">
+        <link rel="stylesheet" href="assets/css/components.css">
+        <link rel="stylesheet" href="assets/css/layout.css">
+        <link rel="stylesheet" href="assets/css/pages.css">
+        <link rel="icon" href="assets/img/logo.jpg">
 
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #1e3a8a; /* bleu foncé */
-            margin-bottom: 40px;
-        }
-
-        /* === Styles FAQ === */
-        .faq-item {
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .question {
-            background-color: #3b82f6; /* bleu moyen */
-            color: white;
-            padding: 15px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-
-        .question:hover {
-            background-color: #2563eb; /* bleu plus foncé au hover */
-        }
-
-        .question::after {
-            content: '+';
-            font-size: 20px;
-            transition: transform 0.3s;
-        }
-
-        .question.active::after {
-            content: '-';
-            transform: rotate(180deg);
-        }
-
-        .answer {
-            display: none;
-            padding: 15px 20px;
-            background-color: #eff6ff; /* bleu très clair */
-            color: #1f2937; /* texte gris foncé */
-            line-height: 1.6;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>FAQ - Questions fréquentes</h1>
-
-        <div class="faq-item">
-            <div class="question">Comment passer une commande ?</div>
-            <div class="answer">Pour passer une commande, choisissez vos produits, ajoutez-les au panier et suivez le processus de paiement. Vous recevrez ensuite un email de confirmation.</div>
+    </head>
+    <body>
+        <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="active">
+                <div class="logo">
+                    <img src="assets/img/logo.jpg" alt="Logo TechConnect RDC">
+                    <h1>TechConnect RDC</h1>
+                </div>
+            </a>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="categories.html">categories</a></li>
+                    <li><a href="fournisseurs.html">Fournisseurs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="inscription-client.html" class="btn-login">Créer un compte</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="faq-item">
-            <div class="question">Quels moyens de paiement sont acceptés ?</div>
-            <div class="answer">Nous acceptons les cartes bancaires, PayPal et le paiement à la livraison.</div>
+        <div class="container">
+            <h1>FAQ - Questions fréquentes</h1>
+
+            <div class="faq-item">
+                <div class="question">Comment passer une commande ?</div>
+                <div class="answer">
+                    Pour passer une commande, choisissez vos produits, ajoutez-les au panier et suivez le processus de paiement.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Quels moyens de paiement sont acceptés ?</div>
+                <div class="answer">
+                    Nous acceptons les cartes bancaires, PayPal et le paiement à la livraison.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Comment suivre ma commande ?</div>
+                <div class="answer">
+                    Vous recevrez un email contenant un lien de suivi dès l’expédition.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Puis-je annuler ou modifier ma commande ?</div>
+                <div class="answer">
+                    Oui, tant que la commande n’a pas été expédiée. Contactez le service client le plus vite possible.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Quels sont les délais de livraison ?</div>
+                <div class="answer">
+                    Les livraisons prennent entre 3 et 7 jours ouvrables selon votre localisation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Proposez-vous des retours ou échanges ?</div>
+                <div class="answer">
+                    Oui, sous 14 jours, à condition que le produit soit dans son état d’origine.
+                </div>
+            </div>
+
         </div>
+        <script src="assets/js/script.js"></script>
 
-        <div class="faq-item">
-            <div class="question">Comment suivre ma commande ?</div>
-            <div class="answer">Dès l’expédition de votre commande, vous recevrez un email contenant un lien pour suivre son acheminement en temps réel.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="question">Puis-je annuler ou modifier ma commande ?</div>
-            <div class="answer">Oui, tant que votre commande n’a pas été expédiée. Contactez notre service client rapidement pour effectuer les modifications.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="question">Quels sont les délais de livraison ?</div>
-            <div class="answer">La livraison standard prend généralement 3 à 7 jours ouvrables selon votre localisation.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="question">Proposez-vous des retours ou échanges ?</div>
-            <div class="answer">Oui, vous pouvez retourner ou échanger vos produits sous 14 jours à compter de la réception. Les produits doivent être dans leur état d’origine.</div>
-        </div>
-
-    </div>
-
-    <script>
-        const questions = document.querySelectorAll('.question');
-
-        questions.forEach(q => {
-            q.addEventListener('click', () => {
-                q.classList.toggle('active');
-                const answer = q.nextElementSibling;
-                if(answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                } else {
-                    answer.style.display = 'block';
-                }
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>
+
+
 
 

@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechConnect RDC - Plateforme B2B</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="assets/img/logo.jpg">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechConnect RDC - Plateforme B2B</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/faq.css">
+        <link rel="icon" href="assets/img/logo.jpg">
 
-<body>
-
-    <!-- ==================== HEADER ==================== -->
-    <header id="header">
+    </head>
+    <body>
+        <header id="header">
         <div class="container header-container">
-            <div class="logo">
-                <img src="assets/img/logo.jpg" alt="Logo TechConnect RDC">
-                <h1>TechConnect RDC</h1>
-            </div>
+            <a href="index.html" class="active">
+                <div class="logo">
+                    <img src="assets/img/logo.jpg" alt="Logo TechConnect RDC">
+                    <h1>TechConnect RDC</h1>
+                </div>
+            </a>
             <nav id="navbar">
                 <ul>
                     <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="produits.html">Produits</a></li>
+                    <li><a href="categories.html">categories</a></li>
                     <li><a href="fournisseurs.html">Fournisseurs</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="connexion-fournisseur.html" class="btn-login">Créer un compte</a></li>
+                    <li><a href="inscription-client.html" class="btn-login">Créer un compte</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ==================== FOOTER ==================== -->
+        <section class="scontainer">
+            <h1>FAQ - Questions fréquentes</h1>
+
+            <div class="faq-item">
+                <div class="question">Comment passer une commande ?</div>
+                <div class="answer">
+                    Pour passer une commande, choisissez vos produits, ajoutez-les au panier et suivez le processus de paiement.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Quels moyens de paiement sont acceptés ?</div>
+                <div class="answer">
+                    Nous acceptons les cartes bancaires, PayPal et le paiement à la livraison.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Comment suivre ma commande ?</div>
+                <div class="answer">
+                    Vous recevrez un email contenant un lien de suivi dès l’expédition.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Puis-je annuler ou modifier ma commande ?</div>
+                <div class="answer">
+                    Oui, tant que la commande n’a pas été expédiée. Contactez le service client le plus vite possible.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Quels sont les délais de livraison ?</div>
+                <div class="answer">
+                    Les livraisons prennent entre 3 et 7 jours ouvrables selon votre localisation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Proposez-vous des retours ou échanges ?</div>
+                <div class="answer">
+                    Oui, sous 14 jours, à condition que le produit soit dans son état d’origine.
+                </div>
+            </div>
+
+        </section>
+        <script src="assets/js/script.js"></script>
+
+        <!-- ==================== FOOTER ==================== -->
     <footer id="footer">
         <div class="container footer-container">
             <div class="footer-info">
@@ -59,5 +108,7 @@
         </div>
     </footer>
 
-</body>
+    </body>
 </html>
+
+

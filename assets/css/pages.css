@@ -1,0 +1,53 @@
+/* ============================================================
+   PAGES.CSS — Styles par page (100% rétrocompatible)
+============================================================ */
+
+
+/* ACCUEIL */
+.category-grid { margin-bottom: 60px; }
+.services-grid { margin-bottom: 60px; }
+.fournisseurs-grid { margin-bottom: 60px; }
+
+
+/* INSCRIPTION / LOGIN */
+.form-container { margin-top: 60px; }
+
+
+/* FOURNISSEURS */
+.fournisseurs-grid { margin-top: 40px; }
+
+
+/* SERVICES */
+.services-grid { margin-top: 40px; }
+
+
+/* CONTACT */
+.contact-box {
+    max-width: 700px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* PRODUITS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+
+/* PANIER */
+.panier-table {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.total-box {
+    text-align: right;
+    font-size: 1.2rem;
+}

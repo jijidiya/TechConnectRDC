@@ -1,0 +1,79 @@
+/* ============================================================
+   BASE.CSS — Design System + Reset Global (Rétrocompatible)
+============================================================ */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+    --color-primary: #262daf;
+    --color-secondary: #0B4DA1;
+    --color-accent: #0E7A66;
+    --color-accent-dark: #0B5E4F;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-text: #22303A;
+    --color-text-muted: #5A6B75;
+    --color-gray-light: #D5D8DC;
+
+    --bg-light: #ffffff;
+    --bg-dark: #262daf;
+
+    --font-family: "Open Sans", sans-serif;
+    --line-height: 1.6;
+
+    --radius-sm: 5px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+}
+
+/* GLOBAL */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    color: var(--color-text);
+    line-height: var(--line-height);
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TEXT */
+h1, h2, h3, h4 {
+    color: var(--color-black);
+    font-weight: 700;
+}
+
+p {
+    color: var(--color-text);
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.85;
+}

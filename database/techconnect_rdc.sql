@@ -91,6 +91,10 @@ CREATE TABLE produits (
     FOREIGN KEY (fournisseur_id) REFERENCES fournisseur(id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
+/* -----------------------------------------------------------
+   TABLE 5 : COMMANDES
+   Commandes passées par les clients
+   ----------------------------------------------------------- */
 
 CREATE TABLE commandes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -104,7 +108,10 @@ CREATE TABLE commandes (
 
     FOREIGN KEY (user_id) REFERENCES users(id)    
 );
-
+/* -----------------------------------------------------------
+   TABLE 6 : COMMANDE ITEMS
+   Contenu d’une commande (produits achetés)
+   ----------------------------------------------------------- */
 CREATE TABLE commande_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -117,6 +124,9 @@ CREATE TABLE commande_items (
     FOREIGN KEY (commande_id) REFERENCES commandes(id) ON DELETE CASCADE,
     FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
 );
+/* -----------------------------------------------------------
+   TABLE 7 : MESSAGES (Chat client <-> fournisseur)
+   ----------------------------------------------------------- */
 
 CREATE TABLE messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -135,10 +145,12 @@ CREATE TABLE messages (
     FOREIGN KEY (receiver_id) REFERENCES users(id)
 
 
+);
+
+
+
     --TO DO : table avis
     --TO DO : table favoris/wishlist 
 
     --TO DO : faire le reste  de la documentation
-
-);
 

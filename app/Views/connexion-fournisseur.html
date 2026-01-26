@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - TechConnect RDC</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+</head>
+<body>
+
+<header id="header">
+    <div class="container header-container">
+        <div class="logo">
+            <img src="../assets/img/logo.png" alt="Logo TechConnect RDC">
+            <h1>TechConnect RDC</h1>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="inscription-fournisseur.html">Créer un compte</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="connexion">
+    <div class="container form-container">
+        <h2>Connexion fournisseur</h2>
+        <p>Connectez-vous à votre compte pour gérer vos produits.</p>
+
+        <form action="#" method="post" id="form-connexion">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mot_de_passe">Mot de passe</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+
+            <button type="submit" class="btn-primary">Se connecter</button>
+
+            <p class="login-link">Pas encore inscrit ? <a href="inscription-fournisseur.html">Créer un compte</a></p>
+        </form>
+    </div>
+</section>
+
+<footer id="footer">
+    <p>© 2025 TechConnect RDC - Tous droits réservés</p>
+</footer>
+
+</body>
+</html>

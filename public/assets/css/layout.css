@@ -1,0 +1,178 @@
+/* =====================================
+               layout.css 
+======================================= */
+
+
+/* ============== HEADER ================= */
+
+header {
+    background: white;
+    color: var(--color-primary);
+    padding: 2px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+header a {
+    color: #262daf;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.logo h1{
+    font-size: 1.4rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #AED6F1;
+}
+
+
+/* ========== SECTION  BANNIÈRE D’ACCUEIL (HERO) ========== */
+
+#hero {
+    position: relative;          
+    color: white;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Image */
+.hero-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.hero-content {
+    position: absolute;           
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    max-width: 550px;
+}
+
+/* Titres */
+#hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+
+
+/* ===========  TITRES DE SECTIONS ============== */
+
+.section-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+/* =========== SECTIONS APPEL À L'ACTION (CTA)  ============== */
+
+#cta-section {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#cta-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+#cta-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* ========== SECTION PIED DE PAGE (FOOTER) ========== */
+
+#footer {
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-container h3,
+.footer-container h4 {
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #D6EAF8;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    font-size: 0.9rem;
+}

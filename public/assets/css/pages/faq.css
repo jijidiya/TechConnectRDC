@@ -1,0 +1,68 @@
+/* ==================== TITRE ==================== */
+.section-title {
+    color: var(--color-primary);
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* ==================== CONTAINER FAQ ==================== */
+.faq-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ==================== ITEM FAQ ==================== */
+.faq-item {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ==================== QUESTION ==================== */
+.question {
+    background-color: #3b82f6;
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.question:hover {
+    background-color: #2563eb;
+}
+
+/* Icône + / - */
+.question::after {
+    content: '+';
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+/* ==================== REPONSE ==================== */
+.answer {
+    display: none;
+    padding: 15px 20px;
+    background-color: #eff6ff;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* ==================== ETAT OUVERT ==================== */
+.faq-item.active .answer {
+    display: block;
+}
+
+.faq-item.active .question::after {
+    content: '-';
+}
+
+

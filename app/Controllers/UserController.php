@@ -37,67 +37,107 @@ class UserController
     public function register(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: register.php');
-            exit;
+            return;
         }
 
-        $nom      = $_POST['nom'] ?? '';
-        $email    = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-        $role     = $_POST['role'] ?? 'client';
+        // ===============================
+        // Récupération des données
+        // ===============================
+        $nom              = trim($_POST['nom'] ?? '');
+        $email            = trim($_POST['email'] ?? '');
+        $telephone        = trim($_POST['telephone'] ?? '');
+        $password         = $_POST['password'] ?? '';
+        $confirmPassword  = $_POST['confirm_password'] ?? '';
+        $role             = $_POST['role'] ?? '';
 
-        /* ===== VALIDATION ===== */
-
-        if (!Validator::name($nom)) {
-            $_SESSION['error'] = "Nom invalide.";
-            header('Location: register.php');
-            exit;
+        // ===============================
+        // Vérifications de base
+        // ===============================
+        if (
+            empty($nom) ||
+            empty($email) ||
+            empty($password) ||
+            empty($confirmPassword) ||
+            empty($role)
+        ) {
+            $_SESSION['error'] = 'Tous les champs sont obligatoires.';
+            return;
         }
 
-        if (!Validator::email($email)) {
-            $_SESSION['error'] = "Email invalide.";
-            header('Location: register.php');
-            exit;
+        // ===============================
+        // Validation email
+        // ===============================
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['error'] = 'Adresse e-mail invalide.';
+            return;
         }
 
-        if (!Validator::password($password)) {
-            $_SESSION['error'] = "Mot de passe trop court.";
-            header('Location: register.php');
-            exit;
+        // ===============================
+        // Validation du rôle
+        // ===============================
+        $allowedRoles = ['client', 'fournisseur'];
+
+        if (!in_array($role, $allowedRoles, true)) {
+            $_SESSION['error'] = 'Type de compte invalide.';
+            return;
         }
 
+        // ===============================
+        // Vérification mot de passe
+        // ===============================
+        if ($password !== $confirmPassword) {
+            $_SESSION['error'] = 'Les mots de passe ne correspondent pas.';
+            return;
+        }
+
+        if (strlen($password) < 6) {
+            $_SESSION['error'] = 'Le mot de passe doit contenir au moins 6 caractères.';
+            return;
+        }
+
+        // ===============================
+        // Email déjà utilisé ?
+        // ===============================
         if ($this->userModel->emailExists($email)) {
-            $_SESSION['error'] = "Cet email existe déjà.";
-            header('Location: register.php');
-            exit;
+            $_SESSION['error'] = 'Cet email est déjà utilisé.';
+            return;
         }
 
-        /* ===== CRÉATION ===== */
+        // ===============================
+        // Création utilisateur
+        // ===============================
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $created = $this->userModel->create([
+        $userId = $this->userModel->create([
             'nom'           => $nom,
             'email'         => $email,
-            'password_hash' => password_hash($password, PASSWORD_DEFAULT),
+            'telephone'     => $telephone,
+            'password_hash' => $hashedPassword,
             'role'          => $role
         ]);
 
-        if (!$created) {
-            $_SESSION['error'] = "Erreur lors de l’inscription.";
-            header('Location: register.php');
-            exit;
+        if (!$userId) {
+            $_SESSION['error'] = 'Erreur lors de la création du compte.';
+            return;
         }
 
-        // Si fournisseur, créer le profil fournisseur
+        // ===============================
+        // Création profil fournisseur
+        // ===============================
         if ($role === 'fournisseur') {
             $this->fournisseurModel->create([
-                'user_id' => $this->pdo->lastInsertId()
+                'user_id' => $userId
             ]);
         }
 
-        $_SESSION['success'] = "Compte créé avec succès.";
-        header('Location: login.php');
+        // ===============================
+        // Succès
+        // ===============================
+        $_SESSION['success'] = 'Compte créé avec succès. Vous pouvez vous connecter.';
+        header('Location: /index.php?page=login');
         exit;
     }
+
 
     /* =====================================================
        CONNEXION

@@ -1,262 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Panier - Nextgen Laptops</title>
-  <style>
-    :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --text:#0f1724;
-      --muted:#6b7280;
-      --primary:#4a00e0;
-      --accent:#a100ff;
-      --border:#e6e9f0;
-      --radius:12px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background:var(--bg);
-      color:var(--text);
-    }
+    <meta charset="utf-8">
+    <title>Panier - Nextgen Laptops</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    header{
-      background:var(--card);
-      border-bottom:1px solid var(--border);
-      position:sticky; top:0; z-index:20;
-    }
-    .nav{
-      max-width:1200px; margin:auto; padding:14px 20px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{font-weight:700}
-    .btn{
-      padding:9px 14px; border-radius:10px; border:1px solid var(--border);
-      background:#fff; cursor:pointer; font-weight:600; color:var(--text);
-    }
-    .btn.primary{
-      background:linear-gradient(90deg,var(--primary),var(--accent));
-      color:#fff; border:none;
-    }
-
-    .container{max-width:1200px; margin:auto; padding:28px 20px}
-    h1{margin:0 0 18px}
-
-    .cart-grid{
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:20px;
-      align-items:start;
-    }
-
-    /* Cart list */
-    .cart-list{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-    }
-    .cart-item{
-      display:grid;
-      grid-template-columns: 120px 1fr 120px 120px 80px;
-      gap:12px;
-      align-items:center;
-      padding:16px;
-      border-bottom:1px solid var(--border);
-    }
-    .cart-item:last-child{border-bottom:none}
-    .thumb{
-      width:120px; height:80px; border-radius:10px; overflow:hidden; background:#f3f6ff;
-      display:flex; align-items:center; justify-content:center; border:1px solid #eef2ff;
-    }
-    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
-
-    .item-title{font-weight:700; margin-bottom:6px}
-    .item-meta{color:var(--muted); font-size:13px}
-    .qty-input{width:80px; padding:8px; border-radius:8px; border:1px solid var(--border)}
-    .remove-btn{background:#fff; border:1px solid #ffdede; color:#b00020; padding:8px 10px; border-radius:8px; cursor:pointer}
-
-    /* Summary */
-    .summary{
-      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px;
-      height:fit-content;
-    }
-    .summary .row{display:flex; justify-content:space-between; margin:10px 0; color:var(--muted)}
-    .summary .total{font-weight:800; font-size:20px; color:var(--text)}
-    .summary .actions{display:flex; gap:10px; margin-top:14px}
-
-    /* Empty cart */
-    .empty{padding:40px; text-align:center; color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .cart-grid{grid-template-columns:1fr}
-      .cart-item{grid-template-columns:100px 1fr 100px 100px 60px}
-    }
-    @media (max-width:520px){
-      .cart-item{grid-template-columns:80px 1fr 80px 80px 60px; gap:8px; padding:12px}
-      .thumb{width:80px; height:60px}
-    }
-  </style>
+    <link rel="stylesheet" href="panier.css">
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <div class="brand">Laptops</div>
-      <div>
-        <button class="btn" onclick="location.href='Produit.html'">Continuer vos achats</button>
-      </div>
-    </div>
-  </header>
 
-  <main class="container">
+<header>
+    <div class="nav">
+        <div class="brand">Laptops</div>
+        <div>
+            <button class="btn" onclick="location.href='Produit.html'">
+                Continuer vos achats
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
     <h1>Votre panier</h1>
 
     <div class="cart-grid">
-      <div>
-        <div class="cart-list" id="cart-list" aria-live="polite">
-          <!-- éléments du panier insérés par JS -->
+        <div>
+            <div class="cart-list" id="cart-list" aria-live="polite"></div>
         </div>
-      </div>
 
-      <aside class="summary" aria-labelledby="summary-title">
-        <div id="summary-title" style="font-weight:700; margin-bottom:8px">Récapitulatif de la commande</div>
-        <div class="row"><span>Sous-total</span><span id="subtotal">$0.00</span></div>
-        <div class="row"><span>Remise</span><span id="discount">-$0.00</span></div>
-        <div class="row"><span>Livraison</span><span id="shipping">GRATUITE</span></div>
-        <div class="row"><span>Garantie totale</span><span id="warranty-total">$0.00</span></div>
-        <div class="row total"><span>Total</span><span id="total">$0.00</span></div>
+        <aside class="summary">
+            <div class="summary-title">Récapitulatif de la commande</div>
 
-        <div class="actions">
-          <button class="btn primary" id="checkout-btn">Payer maintenant</button>
-          <button class="btn" onclick="location.href='Produit.html'">Ajouter d'autres produits</button>
-        </div>
-      </aside>
-    </div>
-  </main>
+            <div class="row"><span>Sous-total</span><span id="subtotal">$0.00</span></div>
+            <div class="row"><span>Remise</span><span id="discount">-$0.00</span></div>
+            <div class="row"><span>Livraison</span><span id="shipping">GRATUITE</span></div>
+            <div class="row"><span>Garantie totale</span><span id="warranty-total">$0.00</span></div>
+            <div class="row total"><span>Total</span><span id="total">$0.00</span></div>
 
-  <script>
-    // Formatage monétaire
-    function formatMoney(v){ return `$${v.toFixed(2)}`; }
-
-    // Récupère le panier depuis localStorage
-    function getCart(){ return JSON.parse(localStorage.getItem('cart') || '[]'); }
-
-    // Sauvegarde le panier
-    function saveCart(cart){ localStorage.setItem('cart', JSON.stringify(cart)); }
-
-    // Met à jour l'affichage du panier
-    function renderCart(){
-      const cart = getCart();
-      const list = document.getElementById('cart-list');
-      list.innerHTML = '';
-
-      if(cart.length === 0){
-        list.innerHTML = `<div class="empty">Votre panier est vide.<br><br><button class="btn" onclick="location.href='Produit.html'">Voir les produits</button></div>`;
-        updateSummary([]);
-        return;
-      }
-
-      cart.forEach((item, index) => {
-        const row = document.createElement('div');
-        row.className = 'cart-item';
-        // line total inclut garantie par unité
-        const warrantyPerUnit = item.warrantyPrice || 0;
-        const lineTotal = (item.price + warrantyPerUnit) * item.quantity;
-
-        row.innerHTML = `
-          <div class="thumb">
-            <img src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.name)}" onerror="this.style.opacity=.6; this.style.objectFit='contain'; this.src='';" />
-          </div>
-
-          <div>
-            <div class="item-title">${escapeHtml(item.name)}</div>
-            <div class="item-meta">Garantie: ${item.warrantyYears || 1} an(s) ${warrantyPerUnit ? ' (+ ' + formatMoney(warrantyPerUnit) + ')' : '(standard)'}</div>
-            <div class="item-meta">Prix unitaire: ${formatMoney(item.price)}</div>
-            <div style="margin-top:8px;">
-              <button class="btn" onclick="viewProduct('${escapeHtml(item.id)}')">Voir le produit</button>
+            <div class="actions">
+                <button class="btn primary" id="checkout-btn">Payer maintenant</button>
+                <button class="btn" onclick="location.href='Produit.html'">Ajouter d'autres produits</button>
             </div>
-          </div>
+        </aside>
+    </div>
+</main>
 
-          <div>
-            <input type="number" class="qty-input" min="1" value="${item.quantity}" onchange="updateQty(${index}, this.value)" aria-label="Quantité pour ${escapeHtml(item.name)}" />
-          </div>
-
-          <div style="font-weight:700; text-align:right">${formatMoney(lineTotal)}</div>
-
-          <div style="text-align:right">
-            <button class="remove-btn" onclick="removeItem(${index})">Supprimer</button>
-          </div>
-        `;
-        list.appendChild(row);
-      });
-
-      updateSummary(cart);
-    }
-
-    // Met à jour la quantité
-    function updateQty(index, value){
-      const cart = getCart();
-      const qty = Math.max(1, parseInt(value || '1', 10));
-      cart[index].quantity = qty;
-      saveCart(cart);
-      renderCart();
-    }
-
-    // Supprime un article
-    function removeItem(index){
-      const cart = getCart();
-      cart.splice(index, 1);
-      saveCart(cart);
-      renderCart();
-    }
-
-    // Calcul et affichage du résumé
-    function updateSummary(cart){
-      const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-      const warrantyTotal = cart.reduce((s, i) => s + (i.warrantyPrice || 0) * i.quantity, 0);
-      // Exemple de remise : 5% si sous-total >= 1500
-      const discount = subtotal >= 1500 ? subtotal * 0.05 : 0;
-      const shipping = subtotal > 0 ? 0 : 0; // gratuit
-      const total = Math.max(0, subtotal + warrantyTotal - discount + shipping);
-
-      document.getElementById('subtotal').textContent = formatMoney(subtotal);
-      document.getElementById('discount').textContent = `-${formatMoney(discount)}`;
-      document.getElementById('warranty-total').textContent = formatMoney(warrantyTotal);
-      document.getElementById('shipping').textContent = shipping === 0 ? 'GRATUITE' : formatMoney(shipping);
-      document.getElementById('total').textContent = formatMoney(total);
-    }
-
-    // Voir le produit : enregistre la sélection et redirige vers Produit.html
-    function viewProduct(productId){
-      // stocke l'id pour que Produit.html puisse pré-sélectionner le produit
-      localStorage.setItem('lastSelectedProduct', productId);
-      // redirige vers la page produit
-      location.href = 'Produit.html';
-    }
-
-    // Événement du bouton checkout (placeholder)
-    document.getElementById('checkout-btn').addEventListener('click', () => {
-      const cart = getCart();
-      if(cart.length === 0){
-        alert('Votre panier est vide.');
-        return;
-      }
-      // Ici tu peux intégrer la logique de paiement ou rediriger vers une page de paiement
-      alert('Procéder au paiement (simulation).');
-    });
-
-    // Sécurité: échappe le HTML
-    function escapeHtml(str){
-      if(!str) return '';
-      return String(str).replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]; });
-    }
-
-    // Initialisation
-    window.addEventListener('load', renderCart);
-  </script>
+<script src="panier.js"></script>
 </body>
 </html>

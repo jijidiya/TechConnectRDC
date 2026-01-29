@@ -121,15 +121,29 @@ class Product
     /**
      * Produits d’un fournisseur
      */
-    public function getByFournisseur(int $fournisseurId): array
+    public function getBySupplier(int $supplierId): array
     {
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM produits WHERE fournisseur_id = ? ORDER BY created_at DESC"
+            "SELECT id, title, description, price, images
+            FROM produits
+            WHERE fournisseur_id = :fid
+            AND status = 'published'
+            ORDER BY created_at DESC"
         );
-        $stmt->execute([$fournisseurId]);
 
-        return $stmt->fetchAll();
+        $stmt->execute([':fid' => $supplierId]);
+
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($products as &$p) {
+            $p['images'] = $p['images']
+                ? json_decode($p['images'], true)
+                : [];
+        }
+
+        return $products;
     }
+
 
     /**
      * Produits par catégorie
@@ -233,5 +247,33 @@ class Product
         $slug = strtolower(trim($title));
         $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
         return trim($slug, '-');
+    }
+
+    /**
+     * Renvoie les produits populaires en JSON
+     */
+    public function getPopular(int $limit = 6): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT id, title, description, price, images
+             FROM produits
+             WHERE status = 'published'
+             ORDER BY created_at DESC
+             LIMIT :limit"
+        );
+
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Décodage images JSON
+        foreach ($products as &$p) {
+            $p['images'] = $p['images']
+                ? json_decode($p['images'], true)
+                : [];
+        }
+
+        return $products;
     }
 }

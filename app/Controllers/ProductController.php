@@ -3,74 +3,58 @@
 require_once __DIR__ . '/../Core/Database.php';
 require_once __DIR__ . '/../Core/Upload.php';
 require_once __DIR__ . '/../Models/Product.php';
-require_once __DIR__ . '/../Models/Fournisseur.php';
+require_once __DIR__ . '/../Models/Supplier.php';
 require_once __DIR__ . '/UserController.php';
 
 /**
  * ProductController
  *
- * Gestion des produits :
- *  - ajout produit (fournisseur)
+ * Gère toute la logique liée aux produits :
+ *  - création (fournisseur)
  *  - modification
  *  - suppression
- *  - listing produits
- *  - détail produit
+ *  - listing public
+ *  - produit populaire
  *  - recherche
- *
- * Dépendances :
- *  - Database
- *  - Upload
- *  - Product
- *  - Fournisseur
- *  - UserController (session)
  */
-
-/* =====================================================
-   CONTROLLER
-   ===================================================== */
 
 class ProductController
 {
     /**
      * @var PDO
      */
-    private $pdo;
+    private PDO $pdo;
 
     /**
      * @var Product
      */
-    private $productModel;
+    private Product $productModel;
 
     /**
-     * @var Fournisseur
+     * @var Supplier
      */
-    private $fournisseurModel;
+    private Supplier $supplierModel;
 
     /**
      * Constructeur
      */
     public function __construct()
     {
-        // Connexion DB
         $database = new Database();
         $this->pdo = $database->getConnection();
 
-        // Models
-        $this->productModel = new Product($this->pdo);
-        $this->fournisseurModel = new Fournisseur($this->pdo);
+        $this->productModel  = new Product($this->pdo);
+        $this->supplierModel = new Supplier($this->pdo);
     }
 
     /* =====================================================
-       AJOUT PRODUIT
+       AJOUT PRODUIT (FOURNISSEUR)
        ===================================================== */
 
-    /**
-     * Ajouter un produit (fournisseur uniquement)
-     */
-    public function store()
+    public function store(): void
     {
         if (!UserController::check() || !UserController::isRole('fournisseur')) {
-            header('Location: login.php');
+            header('Location: /index.php?page=login');
             exit;
         }
 
@@ -79,43 +63,43 @@ class ProductController
         }
 
         $userId = $_SESSION['user']['id'];
-        $fournisseur = $this->fournisseurModel->getByUserId($userId);
+        $supplier = $this->supplierModel->getByUserId($userId);
 
-        if (!$fournisseur || $fournisseur['statut'] !== 'actif') {
+        if (!$supplier || $supplier['status'] !== 'active') {
             $_SESSION['error'] = "Compte fournisseur non actif.";
             return;
         }
 
-        // Données
         $title       = trim($_POST['title'] ?? '');
         $description = trim($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
         $quantity    = (int) ($_POST['quantity'] ?? 0);
         $categoryId  = $_POST['category_id'] ?? null;
 
-        if (empty($title) || $price <= 0) {
+        if ($title === '' || $price <= 0) {
             $_SESSION['error'] = "Titre et prix requis.";
             return;
         }
 
-        // Slug
         $slug = $this->productModel->generateSlug($title);
 
-        // Upload image
+        // Upload image (1 image pour l’instant)
         $upload = new Upload();
-        $imageName = null;
+        $images = null;
 
         if (!empty($_FILES['image']['name'])) {
             $imageName = $upload->image(
                 $_FILES['image'],
-                __DIR__ . '/../../uploads/produits'
+                __DIR__ . '/../../uploads/products'
             );
+
+            if ($imageName) {
+                $images = json_encode([$imageName]);
+            }
         }
 
-        $images = $imageName ? json_encode([$imageName]) : null;
-
         $created = $this->productModel->create([
-            'fournisseur_id' => $fournisseur['id'],
+            'fournisseur_id' => $supplier['id'],   // 🔴 aligné DB
             'category_id'    => $categoryId,
             'title'          => $title,
             'slug'           => $slug,
@@ -132,7 +116,7 @@ class ProductController
         }
 
         $_SESSION['success'] = "Produit ajouté avec succès.";
-        header('Location: dashboard-fournisseur.php');
+        header('Location: /index.php?page=supplier-dashboard');
         exit;
     }
 
@@ -140,13 +124,10 @@ class ProductController
        MODIFICATION PRODUIT
        ===================================================== */
 
-    /**
-     * Modifier un produit
-     */
-    public function update(int $id)
+    public function update(int $id): void
     {
         if (!UserController::check() || !UserController::isRole('fournisseur')) {
-            header('Location: login.php');
+            header('Location: /index.php?page=login');
             exit;
         }
 
@@ -155,10 +136,17 @@ class ProductController
         }
 
         $product = $this->productModel->getById($id);
-
         if (!$product) {
             $_SESSION['error'] = "Produit introuvable.";
             return;
+        }
+
+        $supplier = $this->supplierModel->getByUserId($_SESSION['user']['id']);
+
+        // Sécurité : le produit doit appartenir au fournisseur
+        if ($product['fournisseur_id'] !== $supplier['id']) {
+            http_response_code(403);
+            exit('Accès refusé');
         }
 
         $title       = trim($_POST['title'] ?? '');
@@ -167,16 +155,14 @@ class ProductController
         $quantity    = (int) ($_POST['quantity'] ?? 0);
         $categoryId  = $_POST['category_id'] ?? null;
 
-        $slug = $this->productModel->generateSlug($title);
-
-        // Upload nouvelle image (optionnel)
+        $slug   = $this->productModel->generateSlug($title);
         $images = $product['images'];
 
         if (!empty($_FILES['image']['name'])) {
-            $upload = new Upload();
+            $upload   = new Upload();
             $newImage = $upload->image(
                 $_FILES['image'],
-                __DIR__ . '/../../uploads/produits'
+                __DIR__ . '/../../uploads/products'
             );
 
             if ($newImage) {
@@ -192,7 +178,7 @@ class ProductController
             'price'       => $price,
             'quantity'    => $quantity,
             'images'      => $images,
-            'status'      => $product['status'],
+            'status'      => $product['status']
         ]);
 
         if (!$updated) {
@@ -200,8 +186,8 @@ class ProductController
             return;
         }
 
-        $_SESSION['success'] = "Produit modifié.";
-        header('Location: dashboard-fournisseur.php');
+        $_SESSION['success'] = "Produit modifié avec succès.";
+        header('Location: /index.php?page=supplier-dashboard');
         exit;
     }
 
@@ -209,51 +195,52 @@ class ProductController
        SUPPRESSION PRODUIT
        ===================================================== */
 
-    /**
-     * Supprimer un produit
-     */
-    public function destroy(int $id)
+    public function destroy(int $id): void
     {
         if (!UserController::check() || !UserController::isRole('fournisseur')) {
-            header('Location: login.php');
+            header('Location: /index.php?page=login');
             exit;
+        }
+
+        $product  = $this->productModel->getById($id);
+        $supplier = $this->supplierModel->getByUserId($_SESSION['user']['id']);
+
+        if (!$product || $product['fournisseur_id'] !== $supplier['id']) {
+            http_response_code(403);
+            exit('Accès refusé');
         }
 
         $this->productModel->delete($id);
 
         $_SESSION['success'] = "Produit supprimé.";
-        header('Location: dashboard-fournisseur.php');
+        header('Location: /index.php?page=supplier-dashboard');
         exit;
     }
 
     /* =====================================================
-       FRONT-END
+       FRONT-END (LECTURE SEULE)
        ===================================================== */
 
-    /**
-     * Liste des produits publiés
-     */
     public function index(): array
     {
         return $this->productModel->getAll();
     }
 
-    /**
-     * Détail produit
-     */
     public function show(string $slug): ?array
     {
         return $this->productModel->getBySlug($slug);
     }
 
-    /**
-     * Recherche produit
-     */
+    public function popular(): array
+    {
+        return $this->productModel->getPopular();
+    }
+
     public function search(): array
     {
         $query = trim($_GET['q'] ?? '');
 
-        if (empty($query)) {
+        if ($query === '') {
             return [];
         }
 

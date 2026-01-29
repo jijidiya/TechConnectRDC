@@ -6,7 +6,7 @@
  * La logique de connexion est gérée par UserController via le router.
  */
 ?>
-
+ 
 <?php require __DIR__ . '/../layout/header.php'; ?>
 <?php require __DIR__ . '/../components/navbar.php'; ?>
 <?php require __DIR__ . '/../components/flash.php'; ?>

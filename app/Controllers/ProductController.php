@@ -99,7 +99,7 @@ class ProductController
         }
 
         $created = $this->productModel->create([
-            'fournisseur_id' => $supplier['id'],   // 🔴 aligné DB
+            'fournisseur_id' => $supplier['id'],   
             'category_id'    => $categoryId,
             'title'          => $title,
             'slug'           => $slug,

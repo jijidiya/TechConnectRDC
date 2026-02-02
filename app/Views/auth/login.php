@@ -8,19 +8,18 @@
 ?>
  
 <?php require __DIR__ . '/../layout/header.php'; ?>
-<?php require __DIR__ . '/../components/navbar.php'; ?>
 <?php require __DIR__ . '/../components/flash.php'; ?>
 
 <section id="connexion">
     <div class="container form-container">
-        <h2>Connexion</h2>
+        <h2 class="title">Connexion</h2>
         <p>Connectez-vous à votre compte pour accéder à la plateforme.</p>
 
         <!--
             Le formulaire envoie les données vers le router.
             Le traitement est fait dans UserController::login()
         -->
-        <form action="/index.php?page=login" method="post" id="form-connexion">
+        <form action="index.php?page=login" method="post" id="form-connexion">
             <label for="email">Adresse e-mail</label>
             <input
                 type="email"
@@ -43,7 +42,7 @@
 
             <p class="login-link">
                 Pas encore inscrit ?
-                <a href="/index.php?page=register">Créer un compte</a>
+                <a href="index.php?page=register">Créer un compte</a>
             </p>
         </form>
     </div>

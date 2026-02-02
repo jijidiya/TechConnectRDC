@@ -8,14 +8,10 @@
 ?>
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
-<link
-    rel="stylesheet"
-    href="/assets/css/pages/cart.css"
->
-<?php require __DIR__ . '/../components/navbar.php'; ?>
+<link rel="stylesheet" href="assets/css/pages/cart.css">
 
 <main class="container">
-    <h1>Votre panier</h1>
+    <h1 class="title">Votre panier</h1>
 
     <div class="cart-grid">
         <div>
@@ -68,6 +64,6 @@
     </div>
 </main>
 
-<script src="/assets/js/cart.js"></script>
+<script src="assets/js/cart.js"></script>
 
 <?php require __DIR__ . '/../layout/footer.php'; ?>

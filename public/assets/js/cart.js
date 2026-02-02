@@ -1,7 +1,4 @@
 /**
- * ======================================================
- *  PANIER - Nextgen Laptops
- * ======================================================
  * Ce fichier gère entièrement la logique du panier :
  *  - lecture / écriture dans localStorage
  *  - affichage des produits
@@ -175,6 +172,34 @@ function updateSummary(cart){
     document.getElementById("discount").textContent = "-" + formatMoney(discount);
     document.getElementById("warranty-total").textContent = formatMoney(warranty);
     document.getElementById("total").textContent = formatMoney(total);
+}
+
+/**
+ * Ajoute un produit au panier
+ * (appelée depuis les boutons "Ajouter au panier")
+ */
+function addProductToCart(product) {
+    const cart = getCart();
+
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1,
+            warrantyYears: 1,
+            warrantyPrice: 0
+        });
+    }
+
+    saveCart(cart);
+
+    alert("Produit ajouté au panier");
 }
 
 /* ======================================================

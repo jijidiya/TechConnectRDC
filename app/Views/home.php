@@ -9,14 +9,13 @@
 <?php require __DIR__ . '/layout/header.php'; ?>
 
 <!-- CSS SPÉCIFIQUE À LA PAGE D’ACCUEIL -->
-<link rel="stylesheet" href="/assets/css/pages/cards.css">
+<link rel="stylesheet" href="assets/css/pages/cards.css">
 
-<?php require __DIR__ . '/components/navbar.php'; ?>
 <?php require __DIR__ . '/components/flash.php'; ?>
 
 <!-- ==================== SECTION HERO ==================== -->
 <section id="hero">
-    <img src="/assets/img/banner.png" class="hero-image" alt="Banner">
+    <img src="assets/img/banner.png" class="hero-image" alt="Banner">
 
     <div class="hero-content">
         <h2>Connecter les entreprises aux fournisseurs IT en RDC</h2>
@@ -35,26 +34,26 @@
 
         <div class="category-grid">
 
-            <a href="/index.php?page=catalog" class="category-card">
-                <img src="/assets/img/produits/computer1.jpg" alt="Ordinateurs">
+            <a href="index.php?page=catalog" class="category-card">
+                <img src="assets/img/produits/computer1.jpg" alt="Ordinateurs">
                 <h3>Ordinateurs & Laptops</h3>
                 <p>PC portables et de bureau pour entreprises et institutions.</p>
             </a>
 
-            <a href="/index.php?page=catalog" class="category-card">
-                <img src="/assets/img/produits/computer1.jpg" alt="Réseaux">
+            <a href="index.php?page=catalog" class="category-card">
+                <img src="assets/img/produits/computer1.jpg" alt="Réseaux">
                 <h3>Réseaux & Télécoms</h3>
                 <p>Routeurs, switchs et équipements réseau professionnels.</p>
             </a>
 
-            <a href="/index.php?page=catalog" class="category-card">
-                <img src="/assets/img/produits/Imprimante2.jpg" alt="Imprimantes">
+            <a href="index.php?page=catalog" class="category-card">
+                <img src="assets/img/produits/Imprimante2.jpg" alt="Imprimantes">
                 <h3>Imprimantes & Périphériques</h3>
                 <p>Solutions d’impression et équipements bureautiques.</p>
             </a>
 
-            <a href="/index.php?page=catalog" class="category-card">
-                <img src="/assets/img/produits/computer1.jpg" alt="Accessoires">
+            <a href="index.php?page=catalog" class="category-card">
+                <img src="assets/img/produits/computer1.jpg" alt="Accessoires">
                 <h3>Accessoires informatiques</h3>
                 <p>Câbles, écrans, claviers et périphériques divers.</p>
             </a>
@@ -74,39 +73,35 @@
         <div class="products-grid">
 
             <div class="product-card">
-                <img src="/assets/img/produits/computer1.jpg" alt="Ordinateur Dell">
+                <img src="assets/img/produits/computer1.jpg" alt="Ordinateur Dell">
                 <h3>Dell OptiPlex 7090</h3>
                 <p class="product-desc">PC professionnel pour entreprises et administrations.</p>
-                <p class="product-min">Quantité minimale : 10 unités</p>
                 <p class="product-price">Prix indicatif : 1 250 $</p>
-                <a href="/index.php?page=product&id=1" class="btn-secondary">Ajouter au panier</a>
+                <a href="index.php?page=product&id=1" class="btn-secondary">Ajouter au panier</a>
             </div>
 
             <div class="product-card">
-                <img src="/assets/img/produits/computer2.jpg" alt="Switch réseau">
+                <img src="assets/img/produits/computer2.jpg" alt="Switch réseau">
                 <h3>Cisco Switch 24 ports</h3>
                 <p class="product-desc">Équipement réseau haute performance.</p>
-                <p class="product-min">Quantité minimale : 5 unités</p>
                 <p class="product-price">Prix indicatif : 2 100 $</p>
-                <a href="/index.php?page=product&id=2" class="btn-secondary">Ajouter au panier</a>
+                <a href="index.php?page=product&id=2" class="btn-secondary">Ajouter au panier</a>
             </div>
 
             <div class="product-card">
-                <img src="/assets/img/produits/Imprimante1.jpg" alt="Imprimante HP">
+                <img src="assets/img/produits/Imprimante1.jpg" alt="Imprimante HP">
                 <h3>HP LaserJet Pro</h3>
-                <p class="product-desc">Imprimante laser adaptée aux environnements professionnels.</p>
-                <p class="product-min">Quantité minimale : 3 unités</p>
+                <p class="product-desc">Imprimante laser professionnels.</p>
                 <p class="product-price">Prix indicatif : 950 $</p>
-                <a href="/index.php?page=product&id=3" class="btn-secondary">Ajouter au panier</a>
+                <a href="index.php?page=product&id=3" class="btn-secondary">Ajouter au panier</a>
             </div>
 
             <div class="product-card">
-                <img src="/assets/img/produits/computer2.jpg" alt="Accessoires informatiques">
-                <h3>Kit périphériques Logitech</h3>
+                <img src="assets/img/produits/computer2.jpg" alt="Accessoires informatiques">
+                <h3>Kit Logitech</h3>
                 <p class="product-desc">Clavier et souris pour postes professionnels.</p>
-                <p class="product-min">Quantité minimale : 20 unités</p>
                 <p class="product-price">Prix indicatif : 45 $</p>
-                <a href="/index.php?page=product&id=4" class="btn-secondary">Ajouter au panier</a>
+                <a href="index.php?page=product&id=4" class="btn-secondary">Ajouter au panier</a>
             </div>
 
         </div>
@@ -153,19 +148,19 @@
 
         <div class="services-grid">
             <div class="service-card">
-                <img src="/assets/img/autres/service1.jpg" alt="Garantie">
+                <img src="assets/img/autres/service1.jpg" alt="Garantie">
                 <h3>Garantie professionnelle</h3>
                 <p>Tous nos produits bénéficient d’une garantie allant de 3 à 12 mois.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/img/autres/service2.jpg" alt="Livraison">
+                <img src="assets/img/autres/service2.jpg" alt="Livraison">
                 <h3>Livraison & distribution</h3>
                 <p>Livraison à Kinshasa ou retrait dans nos points partenaires.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/img/autres/service3.jpg" alt="Maintenance">
+                <img src="assets/img/autres/service3.jpg" alt="Maintenance">
                 <h3>Support & maintenance</h3>
                 <p>Assistance technique et maintenance pour les équipements achetés.</p>
             </div>
@@ -178,7 +173,7 @@
     <div class="container">
         <h2>Vous êtes un fournisseur ?</h2>
         <p>Rejoignez TechConnect RDC et touchez des clients professionnels.</p>
-        <a href="/index.php?page=register&role=fournisseur" class="btn-primary">
+        <a href="index.php?page=register" class="btn-primary">
             Créer un compte fournisseur
         </a>
     </div>
@@ -191,19 +186,19 @@
 
         <div class="fournisseurs-grid">
             <div class="fournisseur-card">
-                <img src="/assets/img/fournisseurs/f1.jpg" alt="Fournisseur 1">
+                <img src="assets/img/fournisseurs/f1.jpg" alt="Fournisseur 1">
                 <h3>ElectroTech Congo</h3>
                 <p>Distributeur agréé de matériel professionnel.</p>
             </div>
 
             <div class="fournisseur-card">
-                <img src="/assets/img/fournisseurs/f2.jpg" alt="Fournisseur 2">
+                <img src="assets/img/fournisseurs/f2.jpg" alt="Fournisseur 2">
                 <h3>Global Systems</h3>
                 <p>Solutions informatiques et réseaux d’entreprise.</p>
             </div>
 
             <div class="fournisseur-card">
-                <img src="/assets/img/fournisseurs/f3.jpg" alt="Fournisseur 3">
+                <img src="assets/img/fournisseurs/f3.jpg" alt="Fournisseur 3">
                 <h3>KinTech RDC</h3>
                 <p>Spécialiste en ordinateurs et serveurs professionnels.</p>
             </div>

@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../Core/Database.php';
 require_once __DIR__ . '/../Core/Validator.php';
 require_once __DIR__ . '/../Models/User.php';
-require_once __DIR__ . '/../Models/Fournisseur.php';
+require_once __DIR__ . '/../Models/Supplier.php';
 
 /**
  * UserController
@@ -19,7 +19,7 @@ class UserController
 {
     private PDO $pdo;
     private User $userModel;
-    private Fournisseur $fournisseurModel;
+    private Supplier $fournisseurModel;
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class UserController
         $this->pdo = $database->getConnection();
 
         $this->userModel        = new User($this->pdo);
-        $this->fournisseurModel = new Fournisseur($this->pdo);
+        $this->fournisseurModel = new Supplier($this->pdo);
     }
 
     /* =====================================================

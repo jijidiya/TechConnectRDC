@@ -182,7 +182,7 @@ class OrderController
             return;
         }
 
-        $allowedStatuses = ['en_attente', 'en_cours', 'livree', 'annulee'];
+        $allowedStatuses = ['pending', 'paid', 'shipped', 'canceled'];
 
         if (!in_array($status, $allowedStatuses, true)) {
             return;

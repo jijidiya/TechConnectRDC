@@ -14,12 +14,12 @@
     <title>TechConnect RDC - Plateforme B2B</title>
 
     <!-- CSS GLOBAUX -->
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
 
     <!-- Logo -->
-    <link rel="icon" href="/assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 <header id="header">
     <div class="container header-container">
         <div class="logo">
-            <img src="/assets/img/logo.png" alt="Logo TechConnect RDC">
+            <img src="assets/img/logo.png" alt="Logo TechConnect RDC">
             <h1>TechConnect RDC</h1>
         </div>
 

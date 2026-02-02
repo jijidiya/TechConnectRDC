@@ -1,106 +1,133 @@
-/* =====================================================
-   SEED TECHCONNECT RDC
-   ===================================================== */
-
+/* =========================================================
+   RESET (OPTIONNEL MAIS RECOMMANDÉ)
+   ========================================================= */
 
 SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE favoris;
-TRUNCATE TABLE avis;
-TRUNCATE TABLE messages;
-TRUNCATE TABLE commande_items;
-TRUNCATE TABLE commandes;
-TRUNCATE TABLE produits;
-TRUNCATE TABLE categories;
-TRUNCATE TABLE fournisseurs;
-TRUNCATE TABLE users;
+
+DELETE FROM avis;
+DELETE FROM produits;
+DELETE FROM categories;
+DELETE FROM fournisseurs;
+DELETE FROM users;
+
 SET FOREIGN_KEY_CHECKS = 1;
 
--- =====================================================
--- USERS
--- =====================================================
 
-INSERT INTO users (role, nom, email, password_hash, telephone)
+/* =========================================================
+   TABLE USERS
+   Rôles : client | fournisseur
+   ========================================================= */
+
+INSERT INTO users (role, nom, email, password_hash)
 VALUES
-('client', 'Client Test', 'client@test.com', '$2y$10$testhashclient', '0990000000'),
-('fournisseur', 'Fournisseur Test', 'fournisseur@test.com', '$2y$10$testhashfour', '0810000000'),
-('admin', 'Admin TechConnect', 'admin@test.com', '$2y$10$testhashadmin', '0800000000');
+('client', 'Client Test', 'client@test.com', 'password'),
+('client', 'Entreprise Alpha', 'alpha@test.com', 'password'),
 
--- =====================================================
--- FOURNISSEURS
--- =====================================================
+('fournisseur', 'Tech Supplier', 'supplier@test.com', 'password'),
+('fournisseur', 'IT Solutions RDC', 'itsolutions@test.com', 'password');
 
-INSERT INTO fournisseurs (user_id, description, statut)
+
+/* =========================================================
+   TABLE FOURNISSEURS
+   Lien avec users (role = fournisseur)
+   ========================================================= */
+
+INSERT INTO fournisseurs (user_id, statut)
 VALUES
-(2, 'Fournisseur B2B spécialisé en matériel informatique', 'actif');
+(3, 'actif'),
+(4, 'actif');
 
--- =====================================================
--- CATEGORIES
--- =====================================================
 
-INSERT INTO categories (name, slug)
+/* =========================================================
+   TABLE CATEGORIES
+   ========================================================= */
+
+INSERT INTO categories (name)
 VALUES
-('Informatique', 'informatique'),
-('Téléphonie', 'telephonie');
+('Ordinateurs portables'),
+('Réseaux'),
+('Imprimantes'),
+('Accessoires');
 
--- =====================================================
--- PRODUITS
--- =====================================================
 
-INSERT INTO produits (
-    fournisseur_id,
-    category_id,
-    title,
-    slug,
-    description,
-    price,
-    quantity,
-    status
-) VALUES
-(1, 1, 'Ordinateur Portable Pro', 'ordinateur-portable-pro',
- 'Laptop professionnel pour entreprises', 850.00, 10, 'published'),
+/* =========================================================
+   TABLE PRODUITS
+   Images stockées en JSON
+   Chemins relatifs à /public
+   ========================================================= */
 
-(1, 2, 'Smartphone Business', 'smartphone-business',
- 'Téléphone robuste pour usage pro', 420.00, 25, 'published');
-
--- =====================================================
--- COMMANDES
--- =====================================================
-
-INSERT INTO commandes (user_id, total, status)
+INSERT INTO produits
+(fournisseur_id, category_id, title, slug, description, price, quantity, images, status)
 VALUES
-(1, 1270.00, 'paid');
+(
+  1,
+  1,
+  'MacBook Pro 14"',
+  'macbook-pro-14',
+  'Ordinateur portable Apple pour usage professionnel.',
+  1800,
+  10,
+  '["image1.jpg"]',
+  'published'
+),
+(
+  1,
+  1,
+  'Dell XPS 13',
+  'dell-xps-13',
+  'Ultrabook performant pour entreprises.',
+  1450,
+  15,
+  '["image2.jpg"]',
+  'published'
+),
+(
+  2,
+  1,
+  'HP EliteBook',
+  'hp-elitebook',
+  'PC portable professionnel HP.',
+  1300,
+  20,
+  '["image3.jpg"]',
+  'published'
+),
+(
+  2,
+  1,
+  'Lenovo ThinkPad',
+  'lenovo-thinkpad',
+  'Ordinateur robuste pour environnement professionnel.',
+  1250,
+  12,
+  '["image4.jpg"]',
+  'published'
+),
+(
+  2,
+  1,
+  'ASUS ROG Zephyrus',
+  'asus-rog-zephyrus',
+  'Laptop puissant orienté performance.',
+  2100,
+  8,
+  '["image5.jpg"]',
+  'published'
+);
 
--- =====================================================
--- COMMANDE ITEMS
--- =====================================================
 
-INSERT INTO commande_items (commande_id, produit_id, quantity, price)
-VALUES
-(1, 1, 1, 850.00),
-(1, 2, 1, 420.00);
+/* =========================================================
+   VÉRIFICATIONS (OPTIONNEL)
+   ========================================================= */
 
--- =====================================================
--- MESSAGES
--- IMPORTANT pour tes tests MessageFlow
--- =====================================================
+-- Vérifier les utilisateurs
+SELECT id, role, nom, email FROM users;
 
-INSERT INTO messages (sender_id, receiver_id, sujet, body)
-VALUES
-(1, 2, 'Disponibilité produit',
- 'Bonjour, le produit est-il disponible en grande quantité ?');
+-- Vérifier les fournisseurs
+SELECT * FROM fournisseurs;
 
--- =====================================================
--- AVIS
--- =====================================================
+-- Vérifier les catégories
+SELECT * FROM categories;
 
-INSERT INTO avis (user_id, produit_id, note, commentaires)
-VALUES
-(1, 1, 5, 'Excellent produit, très satisfait');
-
--- =====================================================
--- FAVORIS
--- =====================================================
-
-INSERT INTO favoris (user_id, produit_id)
-VALUES
-(1, 2);
+-- Vérifier les produits
+SELECT id, title, price, images, status FROM produits;

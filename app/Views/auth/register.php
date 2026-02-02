@@ -9,19 +9,18 @@
 ?>
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
-<?php require __DIR__ . '/../components/navbar.php'; ?>
 <?php require __DIR__ . '/../components/flash.php'; ?>
 
 <section id="inscription">
     <div class="container form-container">
-        <h2>Créer un compte</h2>
+        <h2 class="title">Créer un compte</h2>
         <p>Rejoignez la plateforme TechConnect RDC.</p>
 
         <!--
             Le formulaire est traité par :
             UserController::register() via le router
         -->
-        <form action="/index.php?page=register" method="post" id="form-inscription">
+        <form action="index.php?page=register" method="post" id="form-inscription">
 
             <!-- Choix du type de compte -->
             <label for="role">Type de compte</label>
@@ -78,7 +77,7 @@
 
             <p class="login-link">
                 Déjà inscrit ?
-                <a href="/index.php?page=login">Se connecter</a>
+                <a href="index.php?page=login">Se connecter</a>
             </p>
         </form>
     </div>

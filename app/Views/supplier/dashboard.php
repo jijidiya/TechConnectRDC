@@ -8,7 +8,6 @@
 ?>
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
-<?php require __DIR__ . '/../components/navbar.php'; ?>
 <?php require __DIR__ . '/../components/flash.php'; ?>
 
 <section class="dashboard">
@@ -53,4 +52,3 @@
 </section>
 
 <?php require __DIR__ . '/../layout/footer.php'; ?>
-🧠

@@ -6,10 +6,9 @@
  */
 ?>
 
-<?php require __DIR__ . '/layout/header.php'; ?>
-<link rel="stylesheet" href="/assets/css/pages/about.css">
-<?php require __DIR__ . '/components/navbar.php'; ?>
-<?php require __DIR__ . '/components/flash.php'; ?>
+<?php require __DIR__ . '/../layout/header.php'; ?>
+<link rel="stylesheet" href="assets/css/pages/about.css">
+<?php require __DIR__ . '/../components/flash.php'; ?>
 
 <!-- TITRE PRINCIPAL -->
 <h1 class="first-title">TechConnect RDC</h1>
@@ -19,7 +18,7 @@
     <!-- BLOC 1 -->
     <div class="bloc">
         <div class="bloc-image">
-            <img src="/assets/img/autres/image4.jpg" alt="image de réseaux">
+            <img src="assets/img/autres/image4.jpg" alt="image de réseaux">
         </div>
         <div class="bloc-texte">
             <h2>Qui sommes-nous ?</h2>
@@ -34,7 +33,7 @@
     <!-- BLOC 2 (INVERSÉ) -->
     <div class="bloc inverse">
         <div class="bloc-image">
-            <img src="/assets/img/autres/image5.jpg" alt="image ordinateur">
+            <img src="assets/img/autres/image5.jpg" alt="image ordinateur">
         </div>
         <div class="bloc-texte">
             <h2>Notre vision</h2>
@@ -49,7 +48,7 @@
     <!-- BLOC 3 -->
     <div class="bloc">
         <div class="bloc-image">
-            <img src="/assets/img/autres/image1.jpg" alt="image lampe">
+            <img src="assets/img/autres/image1.jpg" alt="image lampe">
         </div>
         <div class="bloc-texte">
             <h2>Simplicité, fiabilité, efficacité.</h2>
@@ -66,7 +65,7 @@
     <!-- BLOC 4 (INVERSÉ) -->
     <div class="bloc inverse">
         <div class="bloc-image">
-            <img src="/assets/img/autres/image3.jpg" alt="image de boxe">
+            <img src="assets/img/autres/image3.jpg" alt="image de boxe">
         </div>
         <div class="bloc-texte">
             <h2>Notre mission : connecter les entreprises à la performance.</h2>
@@ -86,35 +85,35 @@
 <section class="founders">
 
     <div class="founder">
-        <img src="/assets/img/fondateurs/junior.jpg" alt="Junior Diyabanza Mazono">
+        <img src="assets/img/fondateurs/junior.jpg" alt="Junior Diyabanza Mazono">
         <h3>Junior DIYABANZA MAZONO</h3>
         <p>CO-CEO – Chief Executive Officer</p>
     </div>
 
     <div class="founder">
-        <img src="/assets/img/fondateurs/esther.jpg" alt="Esther Nkisi Asha">
+        <img src="assets/img/fondateurs/esther.jpg" alt="Esther Nkisi Asha">
         <h3>Esther NKISI ASHA</h3>
         <p>CO-CEO – Chief Executive Officer</p>
     </div>
 
     <div class="founder">
-        <img src="/assets/img/fondateurs/jeanine.jpg" alt="Jeanine Makunga Tondola">
+        <img src="assets/img/fondateurs/jeanine.jpg" alt="Jeanine Makunga Tondola">
         <h3>Jeanine MAKUNGA TONDOLA</h3>
         <p>CTO – Chief Technical Officer</p>
     </div>
 
     <div class="founder">
-        <img src="/assets/img/fondateurs/messie.jpg" alt="Messie Wando Nguangua">
+        <img src="assets/img/fondateurs/messie.jpg" alt="Messie Wando Nguangua">
         <h3>Messie WANDO NGUANGUA</h3>
         <p>COO – Chief Operating Officer</p>
     </div>
 
     <div class="founder">
-        <img src="/assets/img/fondateurs/astride.jpg" alt="Astride Mbamba Makaya">
+        <img src="assets/img/fondateurs/astride.jpg" alt="Astride Mbamba Makaya">
         <h3>Astride MBAMBA MAKAYA</h3>
         <p>CMO – Chief Marketing Officer</p>
     </div>
 
 </section>
 
-<?php require __DIR__ . '/layout/footer.php'; ?>
+<?php require __DIR__ . '/../layout/footer.php'; ?>

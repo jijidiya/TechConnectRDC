@@ -4,16 +4,16 @@
  */
 ?>
 
-<?php require __DIR__ . '/layout/header.php'; ?>
+<?php require __DIR__ . '/../layout/header.php'; ?>
 
 <!-- CSS SPÉCIFIQUE FAQ -->
-<link rel="stylesheet" href="/assets/css/pages/faq.css">
+<link rel="stylesheet" href="assets/css/pages/faq.css">
 
 <!-- JS SPÉCIFIQUE FAQ -->
-<script src="/assets/js/faq.js" defer></script>
+<script src="assets/js/faq.js" defer></script>
 
-<?php require __DIR__ . '/components/navbar.php'; ?>
-<?php require __DIR__ . '/components/flash.php'; ?>
+
+<?php require __DIR__ . '/../components/flash.php'; ?>
 
 <h1 class="section-title">FAQ - Questions fréquentes</h1>
 
@@ -65,4 +65,4 @@
 
 </section>
 
-<?php require __DIR__ . '/layout/footer.php'; ?>
+<?php require __DIR__ . '/../layout/footer.php'; ?>

@@ -230,6 +230,10 @@ class ProductController
     {
         return $this->productModel->getBySlug($slug);
     }
+    public function showById(int $id): ?array
+    {
+        return $this->productModel->getById($id);
+    }
 
     public function popular(): array
     {
